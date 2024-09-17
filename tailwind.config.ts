@@ -6,14 +6,22 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode:'class',
   theme: {
+    fontFamily: {
+      Archivo: ["Archivo", "sans-serif"],
+    },
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "main-white": "#F0F5FD",
+        "main-black": "#221919",
+        primary: "#F87171",
+        "primary-dark": "#18181B",
+        'btn':"#312F2F"
       },
     },
   },
   plugins: [],
 };
+
 export default config;
