@@ -37,7 +37,7 @@ const Navbar = () => {
         </div>
         <button
           type="button"
-          className="bg-primary dark:bg-[#312f2f] text-white flex  items-center gap-3 px-7 py-3 rounded-3xl font-medium"
+          className="bg-primary dark:bg-[#312f2f] text-white flex  items-center gap-3 px-7 py-[10px] rounded-3xl font-medium"
         >
           Get In Touch <FaArrowRightLong />
         </button>

@@ -1,10 +1,10 @@
 import React from "react";
 import workboy from "./workboy.webp";
 import Image from "next/image";
-import { FaRegEnvelope } from "react-icons/fa6";
+import { FaArrowRightLong, FaRegEnvelope } from "react-icons/fa6";
 const WorkTogether = () => {
   return (
-    <section className="bg-[#ebebeb] pb-12 mb-[200px] dark:bg-[#0C0202] container  flex flex-col justify-center items-center rounded-3xl">
+    <section className="bg-[#ebebeb] pb-12  dark:bg-[#0C0202] container  flex flex-col justify-center items-center rounded-3xl">
       <div className="text-primary-dark dark:text-[#fafafa] text-[160px] font-semibold px-3 ">
         <h2 className=" text-center">
           LET&apos;S W
@@ -27,7 +27,8 @@ const WorkTogether = () => {
         </div>
 
         <h1 className="text-primary text-3xl">ashishlawaju143@gmail.com</h1>
-        <button type="button">Contact Via Form</button>
+        <button type="button" className="bg-white px-7 py-[10px] rounded-3xl flex items-center gap-2 dark:bg-btn dark:main-white">Contact Via Form <FaArrowRightLong />
+        </button>
       </div>
     </section>
   );

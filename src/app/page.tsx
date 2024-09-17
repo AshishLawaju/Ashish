@@ -1,5 +1,6 @@
 import React from 'react'
 import WorkTogether from './components/worktogether/WorkTogether'
+import Footer from './components/footer/Footer'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         Home
       </div>
       <WorkTogether/>
+      <Footer/>
     </main>
   )
 }
