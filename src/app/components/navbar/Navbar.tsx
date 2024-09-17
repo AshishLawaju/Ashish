@@ -6,8 +6,11 @@ import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { FaArrowRightLong, FaWhatsapp } from "react-icons/fa6";
 import { CiMenuBurger } from "react-icons/ci";
 import { useTheme } from "next-themes";
+import GetInTouch from "@/app/form/Get In TOuch/GetInTouch";
+import { useState } from "react";
 const Navbar = () => {
   const { resolvedTheme } = useTheme();
+  const [showGetInTouch, setShowGetInTouch] = useState(false);
   return (
     <nav className="h-[80px]  sticky w-full top-0 z-40 border-b dark:border-main-black bg-main-white dark:bg-[#0C0202] dark:text-main-white">
       <div className=" flex justify-around items-center h-full">
@@ -37,11 +40,13 @@ const Navbar = () => {
         </div>
         <button
           type="button"
+          onClick={() => setShowGetInTouch((pre) => !pre)}
           className="bg-primary dark:bg-[#312f2f] text-white flex  items-center gap-3 px-7 py-[10px] rounded-3xl font-medium"
         >
           Get In Touch <FaArrowRightLong />
         </button>
       </div>
+      {showGetInTouch && <GetInTouch  setShowGetInTouch={setShowGetInTouch}/>}
     </nav>
   );
 };

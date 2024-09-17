@@ -18,7 +18,7 @@ const ThemeChanger = () => {
   return (
     <>
       <div
-        className={`fixed z-50   right-0 top-[25%] ${
+        className={`fixed z-40   right-0 top-[25%] ${
           resolvedTheme === "light" ? "bg-[#0C0202]" : "bg-white"
         } transition-all ease-in-out duration-500 p-3 pl-4 pr-2 rounded-l-full cursor-pointer inline-block`}
       >

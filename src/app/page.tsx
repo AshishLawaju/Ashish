@@ -2,11 +2,10 @@ import React from "react";
 import WorkTogether from "./components/worktogether/WorkTogether";
 import Footer from "./components/footer/Footer";
 import Hero from "./components/Hero/Hero";
-import Navbar from "./components/navbar/Navbar";
 
 const Home = () => {
   return (
-    <main className="bg-main-white dark:bg-main-black relative">
+    <main className="bg-main-white dark:bg-main-black  select-none">
   
       <Hero />
       <WorkTogether />
