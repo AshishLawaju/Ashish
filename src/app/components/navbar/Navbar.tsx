@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 const Navbar = () => {
   const { resolvedTheme } = useTheme();
   return (
-    <nav className="h-[80px] bg-main-white dark:bg-[#0C0202] dark:text-main-white">
+    <nav className="h-[80px]  sticky w-full top-0 z-40 border-b dark:border-main-black bg-main-white dark:bg-[#0C0202] dark:text-main-white">
       <div className=" flex justify-around items-center h-full">
         {resolvedTheme == "dark" ? (
           <Image alt="ashish lawaju" src={whiteLogo} width={54} height={54} />

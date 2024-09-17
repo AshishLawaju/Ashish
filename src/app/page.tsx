@@ -1,20 +1,18 @@
-import React from 'react'
-import WorkTogether from './components/worktogether/WorkTogether'
-import Footer from './components/footer/Footer'
+import React from "react";
+import WorkTogether from "./components/worktogether/WorkTogether";
+import Footer from "./components/footer/Footer";
+import Hero from "./components/Hero/Hero";
+import Navbar from "./components/navbar/Navbar";
 
 const Home = () => {
   return (
-    <main className='bg-main-white dark:bg-main-black'>Home
-      <div className='font-Archivo'>
-        Home
-      </div>
-      <div className='font h-[100vh]'>
-        Home
-      </div>
-      <WorkTogether/>
-      <Footer/>
+    <main className="bg-main-white dark:bg-main-black relative">
+  
+      <Hero />
+      <WorkTogether />
+      <Footer />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

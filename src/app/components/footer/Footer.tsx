@@ -35,12 +35,12 @@ const Footer = () => {
       <div className="flex  w-full justify-between text-lg ">
         <div> &copy;2024 Ashish Lawaju</div>
         <div className="flex gap-4">
-          <div className="flex items-center">LINKEDIN <CgArrowTopRight   />
+          <div className="flex items-center hover:text-blue-600 cursor-pointer">LINKEDIN <CgArrowTopRight   />
           </div>
-          <div  className="flex items-center">GITHUB  <CgArrowTopRight   /></div>
-          <div  className="flex items-center">WHATSAPP  <CgArrowTopRight   /></div>
+          <div  className="flex items-center cursor-pointer hover:text-[#51769b]">GITHUB  <CgArrowTopRight   /></div>
+          <div  className="flex items-center hover:text-green-400 cursor-pointer">WHATSAPP  <CgArrowTopRight   /></div>
         </div>
-        <div className="flex items-center gap-2" >Hop to Top <FaArrowUp  className="animate-bounce duration-1000"/>
+        <div className="flex items-center gap-2 " >Hop to Top <FaArrowUp  className="animate-bounce duration-1000"/>
 
         </div>
       </div>

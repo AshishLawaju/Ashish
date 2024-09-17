@@ -31,11 +31,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-Archivo`}
       >
-        <Providers >
+        <Providers>
           <Navbar />
           <div className="w-full">
-
-          <ThemeChanger />
+            <ThemeChanger />
           </div>
           {children}
         </Providers>
