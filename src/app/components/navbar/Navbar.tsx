@@ -8,11 +8,51 @@ import { CiMenuBurger } from "react-icons/ci";
 import { useTheme } from "next-themes";
 import GetInTouch from "@/app/form/Get In TOuch/GetInTouch";
 import { useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+
 const Navbar = () => {
   const { resolvedTheme } = useTheme();
   const [showGetInTouch, setShowGetInTouch] = useState(false);
+
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [isBgTransparent, setBgTransparent] = useState(true);
+
+  /*  useEffect(() => {
+    const unsub = scrollY.on("change", (latest) => {
+      console.log(latest);
+    });
+    return () => unsub();
+  }, [scrollY]); */
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    // console.log(latest)
+    const previous = scrollY.getPrevious();
+
+    if (previous && latest > previous && latest > 80) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+
+    if (latest < 150) {
+      setBgTransparent(true);
+    } else {
+      setBgTransparent(false);
+    }
+  });
   return (
-    <nav className="h-[80px]  sticky w-full top-0 z-40 border-b dark:border-main-black bg-main-white dark:bg-[#0C0202] dark:text-main-white">
+    <motion.nav
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className={`h-[80px]  sticky w-full top-0 z-40 border-b dark:border-main-black ${
+        isBgTransparent ? "bg-transparent" : "bg-main-white dark:bg-[#0C0202]"
+      }  dark:text-main-white`}
+    >
       <div className=" flex justify-around items-center h-full">
         {resolvedTheme == "dark" ? (
           <Image alt="ashish lawaju" src={whiteLogo} width={54} height={54} />
@@ -46,8 +86,8 @@ const Navbar = () => {
           Get In Touch <FaArrowRightLong />
         </button>
       </div>
-      {showGetInTouch && <GetInTouch  setShowGetInTouch={setShowGetInTouch}/>}
-    </nav>
+      {showGetInTouch && <GetInTouch setShowGetInTouch={setShowGetInTouch} />}
+    </motion.nav>
   );
 };
 

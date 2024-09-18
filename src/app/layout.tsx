@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-Archivo`}
       >
         <Providers>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="w-full">
             <ThemeChanger />
           </div>

@@ -1,13 +1,39 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { RxCrossCircled } from "react-icons/rx";
+interface GetInTouchProps {
+  setShowGetInTouch: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const GetInTouch = ({ setShowGetInTouch }) => {
+const GetInTouch: React.FC<GetInTouchProps> = ({ setShowGetInTouch }) => {
+  const reff = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Event handler to check for clicks outside the reff element
+    const handleClickOutside = (event: MouseEvent) => {
+      if (reff.current && !reff.current.contains(event.target as Node)) {
+        // If the click happens outside the ref element, hide the component
+        setShowGetInTouch(false);
+      }
+    };
+
+    // Add event listener when the component mounts
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [reff, setShowGetInTouch]);
   return (
     <>
       {
         <div className="absolute z-50 backdrop-blur-sm top-0 right-0 w-[100vw] h-[100vh] flex justify-end ">
-          <div className="bg-[#E3E0DE] dark:bg-primary-dark w-[500px] mt-4 rounded-3xl h-[95vh] py-5 px-7 ">
+          <div
+            ref={reff}
+            className="bg-[#E3E0DE]  dark:bg-primary-dark w-[500px] mt-4 rounded-3xl h-[95vh] py-5 px-7 "
+          >
             <p className="text-4xl flex   gap-1">
               Hello, I&apos;d love to hear from you!{" "}
               <RxCrossCircled
