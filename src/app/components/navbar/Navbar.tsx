@@ -7,8 +7,9 @@ import { FaArrowRightLong, FaWhatsapp } from "react-icons/fa6";
 import { CiMenuBurger } from "react-icons/ci";
 import { useTheme } from "next-themes";
 import GetInTouch from "@/app/form/Get In TOuch/GetInTouch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import Lenis from "lenis";
 
 const Navbar = () => {
   const { resolvedTheme } = useTheme();
@@ -35,12 +36,27 @@ const Navbar = () => {
       setHidden(false);
     }
 
-    if (latest < 150) {
+    if (latest < 100) {
       setBgTransparent(true);
     } else {
       setBgTransparent(false);
     }
   });
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+   /*  lenis.on("scroll", (e) => {
+      console.log(e);
+    }); */
+
+    function raf(time:number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
   return (
     <motion.nav
       variants={{
@@ -49,8 +65,8 @@ const Navbar = () => {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`h-[80px]  sticky w-full top-0 z-40 border-b dark:border-main-black ${
-        isBgTransparent ? "bg-transparent" : "bg-main-white dark:bg-[#0C0202]"
+      className={`h-[80px]  fixed w-full top-0 z-50  dark:border-main-black ${
+        isBgTransparent ? "bg-transparent" : "bg-main-white border-b dark:bg-[#0C0202]"
       }  dark:text-main-white`}
     >
       <div className=" flex justify-around items-center h-full">
