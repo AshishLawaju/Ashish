@@ -24,7 +24,7 @@ const Hero = () => {
           </div>
           <div className="basis-1/2">
             <h3 className="text-3xl font-semibold mt-2">
-              I am a Software Developer with a passion for building clean,
+              I&apos;m a Software Developer with a passion for building clean,
               user-friendly interfaces and robust applications.
             </h3>
             <button className=" mt-14 px-7 py-[10px] bg-primary rounded-3xl flex  gap-2 text-main-white">
